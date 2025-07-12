@@ -40,6 +40,10 @@
      * Initializes the game: fetches welcome text and binds start button event.
      */
     function init() {
+        correct.load();
+        incorrect.load();
+        backgroundMusic.load();
+        
         fetch(`${BASE_URL}/welcome-text`)
             .then(checkStatus)
             .then(res => res.text())
@@ -206,7 +210,7 @@
                         feedback.innerHTML = "";
                         loadNextQuestion();
                     }
-                }, 2000);
+                }, 1000);
             })
             .catch(handleError);
     }
